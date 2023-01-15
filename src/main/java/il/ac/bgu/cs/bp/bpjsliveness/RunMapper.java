@@ -11,7 +11,6 @@ import java.nio.file.Paths;
 import il.ac.bgu.cs.bp.statespacemapper.jgrapht.exports.DotExporter;
 public class RunMapper {
     public static void main(String[] args) throws Exception {
-        System.out.println(args[1]);
         String name = "sokoban";
         String map_name = args[0];
         StateSpaceMapper stateSpaceMapper = new StateSpaceMapper();
