@@ -1,15 +1,15 @@
 importPackage(Packages.events);
 
-// MAP = [
-//     "XXXXXXXX",
-//     "X   XXXX",
-//     "X   X  X",
-//     "XX     X",
-//     "XX XXXtX",
-//     "X bXXXXX",
-//     "Xa XXXXX",
-//     "XXXXXXXX",
-// ];
+MAP = [
+    "XXXXXXXX",
+    "X   XXXX",
+    "X   X  X",
+    "XX     X",
+    "XX XXXtX",
+    "X bXXXXX",
+    "Xa XXXXX",
+    "XXXXXXXX",
+];
 
 // MAP = [
 //     "XXXXXXXX",
@@ -22,16 +22,16 @@ importPackage(Packages.events);
 //     "XXXXXXXX",
 // ];
 
-MAP = [
-    "XXXXXXXX",
-    "X XXX aX",
-    "X t X  X",
-    "X btb  X",
-    "X  b  tX",
-    "XX     X",
-    "XX     X",
-    "XXXXXXXX"
-];
+// MAP = [
+//     "XXXXXXXX",
+//     "X XXX aX",
+//     "X t X  X",
+//     "X btb  X",
+//     "X  b  tX",
+//     "XX     X",
+//     "XX     X",
+//     "XXXXXXXX"
+// ];
 
 // MAP = [
 //     "XXXXXX",
@@ -59,7 +59,15 @@ MAP = [
 //     "X a b tX",
 //     "XXXXXXXX"
 // ];
-
+//
+// MAP = [
+//     "XXXXXXX",
+//     "X tXXaX",
+//     "X btb X",
+//     "X  b tX",
+//     "XX   XX",
+//     "XXXXXXX"
+// ];
 
 function data_to_str(player_location, box_list) {
     let s = player_location[0].toString() + "_" + player_location[1].toString() + "_" + "D";

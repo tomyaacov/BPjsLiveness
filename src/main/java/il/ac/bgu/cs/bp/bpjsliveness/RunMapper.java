@@ -13,9 +13,10 @@ public class RunMapper {
         StateSpaceMapper stateSpaceMapper = new StateSpaceMapper();
         final BProgram bprog = new ResourceBProgram(f+".js");
         MapperResult mapperResult = stateSpaceMapper.mapSpace(bprog);
+        System.out.println(mapperResult);
         System.out.println("// Export to GraphViz...");
         String path = Paths.get("output", f + ".dot").toString();
-        DotExporter dotExporter = new DotExporter(mapperResult, path, f);
+        DotExporter dotExporter = new LivenessExporter(mapperResult, path, f);
         dotExporter.export();
 
     }
