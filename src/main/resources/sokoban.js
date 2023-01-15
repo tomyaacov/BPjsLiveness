@@ -11,27 +11,27 @@ importPackage(Packages.events);
 //     "XXXXXXXX",
 // ];
 
-// MAP = [
-//     "XXXXXXXX",
-//     "X     aX",
-//     "Xt  b  X",
-//     "X  tb  X",
-//     "XXX X  X",
-//     "XXXXXXXX",
-//     "XXXXXXXX",
-//     "XXXXXXXX",
-// ];
-
 MAP = [
     "XXXXXXXX",
-    "X XXX aX",
-    "X t X  X",
-    "X btb  X",
-    "X  b  tX",
-    "XX     X",
-    "XX     X",
-    "XXXXXXXX"
+    "X     aX",
+    "Xt  b  X",
+    "X  tb  X",
+    "XXX X  X",
+    "XXXXXXXX",
+    "XXXXXXXX",
+    "XXXXXXXX",
 ];
+
+// MAP = [
+//     "XXXXXXXX",
+//     "X XXX aX",
+//     "X t X  X",
+//     "X btb  X",
+//     "X  b  tX",
+//     "XX     X",
+//     "XX     X",
+//     "XXXXXXXX"
+// ];
 
 // MAP = [
 //     "XXXXXX",
