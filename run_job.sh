@@ -16,4 +16,4 @@ source activate bpjs_liveness ### activating Conda environment. Environment must
 cd ~/repos/BPjsLiveness/ || exit
 export MAVEN_OPTS="-Xms250g -Xmx250g"
 mvn compile > /dev/null 2>&1
-mvn exec:java -D"exec.args"="2 $@"
+mvn exec:java -D"exec.args"="2"
