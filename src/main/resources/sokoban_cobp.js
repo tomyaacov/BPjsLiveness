@@ -167,12 +167,19 @@ ctx.bthread( "wall", 'Player.Any', function(p){
         let first_time = true;
         let e = null;
         let double_object_movement = null;
-        let p = ctx.getEntityById('player')
+        let box_list = null;
+        let p = ctx.getEntityById('player');
+        let boxes = ctx.runQuery('Box.Any');
         while (true){
             // e = sync( {waitFor:dataEventSet} );
+            box_list = [];
+            for (let b = 0; b < boxes.length; b++) {
+                box_list.push(boxes[b].location)
+            }
             let neighbors_list = find_adjacent_boxes(b.location, walls_list).concat(
-                find_adjacent_boxes(b.location, ctx.runQuery('Box.Any')));
+                find_adjacent_boxes(b.location, box_list));
             double_object_movement =  block_action(neighbors_list, p.location[0], p.location[1])
+            box_list = null;
             let box_in_target = target_list.includes(b)
             e = null;
             if ((!box_in_target) && (!first_time)){
@@ -184,25 +191,23 @@ ctx.bthread( "wall", 'Player.Any', function(p){
         }
     });
 // }
-/*bthread( "data", {box_list: box_list, player_location: player_location, str: "AI"+data_to_str(player_location, box_list)}, function() {
-    let e = null;
-    let new_player_location = null;
-    sync({request:  Data("Data", bp.thread.data), block: bp.eventSets.not(Data("Data", bp.thread.data))});
-    bp.thread.data.str = "BI"+data_to_str(bp.thread.data.player_location, bp.thread.data.box_list);
-    while (true) {
-        e = sync({waitFor: bp.eventSets.all});
-        new_player_location = event_to_new_location(e, bp.thread.data.player_location[0], bp.thread.data.player_location[1]);
-        for (let b = 0; b < box_list.length; b++) {
-            if ((new_player_location[0] === bp.thread.data.box_list[b][0]) &&
-                (new_player_location[1] === bp.thread.data.box_list[b][1])) {
-                bp.thread.data.box_list[b] = event_to_2_steps_trajectory(e, bp.thread.data.player_location[0], bp.thread.data.player_location[1]);
-            }
-        }
-        bp.thread.data.player_location = new_player_location;
-        bp.thread.data.str = "AS"+data_to_str(bp.thread.data.player_location, bp.thread.data.box_list);
-        e = null;
-        new_player_location = null;
-        sync({request:  Data("Data", bp.thread.data), block: bp.eventSets.not(Data("Data", bp.thread.data))});
-        bp.thread.data.str = "BS"+data_to_str(bp.thread.data.player_location, bp.thread.data.box_list);
-    }
-});*/
+// bthread( "data", {str: "I"+data_to_str(ctx.getEntityById('player').location, box_list)}, function() {
+//     sync({request:  Data("Data", bp.thread.data), block: bp.eventSets.not(Data("Data", bp.thread.data))});
+//     bp.thread.data.str = "BI"+data_to_str(bp.thread.data.player_location, bp.thread.data.box_list);
+//     while (true) {
+//         e = sync({waitFor: bp.eventSets.all});
+//         new_player_location = event_to_new_location(e, bp.thread.data.player_location[0], bp.thread.data.player_location[1]);
+//         for (let b = 0; b < box_list.length; b++) {
+//             if ((new_player_location[0] === bp.thread.data.box_list[b][0]) &&
+//                 (new_player_location[1] === bp.thread.data.box_list[b][1])) {
+//                 bp.thread.data.box_list[b] = event_to_2_steps_trajectory(e, bp.thread.data.player_location[0], bp.thread.data.player_location[1]);
+//             }
+//         }
+//         bp.thread.data.player_location = new_player_location;
+//         bp.thread.data.str = "AS"+data_to_str(bp.thread.data.player_location, bp.thread.data.box_list);
+//         e = null;
+//         new_player_location = null;
+//         sync({request:  Data("Data", bp.thread.data), block: bp.eventSets.not(Data("Data", bp.thread.data))});
+//         bp.thread.data.str = "BS"+data_to_str(bp.thread.data.player_location, bp.thread.data.box_list);
+//     }
+// });
