@@ -23,9 +23,15 @@
     </repositories>
     <dependencies>
         <dependency>
-            <groupId>com.github.bthink-bgu</groupId>
-            <artifactId>BPjs</artifactId>
-            <version>0.12.3</version>
+            <groupId>com.github.bThink-BGU</groupId>
+            <artifactId>BPjs-Context</artifactId>
+            <version>0.6.7</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.bthink-bgu</groupId>
+                    <artifactId>BPjs</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.github.bThink-BGU</groupId>
