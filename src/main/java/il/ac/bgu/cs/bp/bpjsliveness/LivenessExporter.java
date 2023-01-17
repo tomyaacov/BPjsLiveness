@@ -39,9 +39,10 @@ public class LivenessExporter extends DotExporter {
 
     protected String getHot(BProgramSyncSnapshot bpss) {
         return bpss.getBThreadSnapshots().stream()
+                .filter(btss -> btss.getName().contains("Live copy: box"))
                 .map(btss -> {
                     SyncStatement syst = btss.getSyncStatement();
-                    return btss.getName() + "," + (syst.isHot() ? "1": "0");
+                    return btss.getName().replaceFirst("Live copy: box ", "") + "," + (syst.isHot() ? "1": "0");
                 })
                 .collect(joining(",\n", "", ""));
     }
