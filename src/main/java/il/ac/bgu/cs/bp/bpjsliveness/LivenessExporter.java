@@ -44,7 +44,7 @@ public class LivenessExporter extends DotExporter {
                     SyncStatement syst = btss.getSyncStatement();
                     return btss.getName().replaceFirst("Live copy: box ", "") + "," + (syst.isHot() ? "1": "0");
                 })
-                .collect(joining(",\n", "", ""));
+                .collect(joining(",", "", ""));
     }
 
     protected String getID(BProgramSyncSnapshot bpss) {
@@ -53,7 +53,7 @@ public class LivenessExporter extends DotExporter {
                 .map(btss -> {
                     return ((NativeObject)btss.getData()).get("str").toString();
                 })
-                .collect(joining(",\n", "", ""));
+                .collect(joining(",", "", ""));
     }
 
 }
