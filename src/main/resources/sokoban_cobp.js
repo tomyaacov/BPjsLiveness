@@ -204,10 +204,10 @@ ctx.bthread( "wall", 'Player.Any', function(p){
         }
     });
 // }
-bthread( "data", {str: "I"+data_to_str(ctx.getEntityById('player').location, ctx.runQuery('Box.Any'))}, function() {
+bthread( "data", {str: "I_"+data_to_str(ctx.getEntityById('player').location, ctx.runQuery('Box.Any'))}, function() {
     while (true) {
         sync({waitFor: bp.eventSets.all});
-        bp.thread.data.str = "S"+data_to_str(ctx.getEntityById('player').location, ctx.runQuery('Box.Any'));
+        bp.thread.data.str = "S_"+data_to_str(ctx.getEntityById('player').location, ctx.runQuery('Box.Any'));
 
     }
 });
