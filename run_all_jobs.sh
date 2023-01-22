@@ -18,6 +18,7 @@ export MAVEN_OPTS="-Xms250g -Xmx250g"
 mvn compile > /dev/null 2>&1
 for i in $(seq 6 15); do
 	for b in $(seq 1 2); do
+	  echo "map_${i}_${b}"
 		mvn exec:java -D"exec.args"="map_${i}_${b}"
 	done
 done
