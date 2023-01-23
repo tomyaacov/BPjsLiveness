@@ -16,9 +16,11 @@ source activate bpjs_liveness ### activating Conda environment. Environment must
 cd ~/repos/BPjsLiveness/ || exit
 export MAVEN_OPTS="-Xms250g -Xmx250g"
 mvn compile > /dev/null 2>&1
-for i in $(seq 6 7); do
-	for b in $(seq 3 3); do
-	  echo "map_${i}_${b}"
-		mvn exec:java -D"exec.args"="map_${i}_${b}"
+for i in $(seq 4 15); do
+  for j in $(seq 4 15); do
+	  for b in $(seq 1 3); do
+	    echo "map_${i}_${j}_${b}"
+		  mvn exec:java -D"exec.args"="map_${i}_${j}_${b}"
+		done
 	done
 done
