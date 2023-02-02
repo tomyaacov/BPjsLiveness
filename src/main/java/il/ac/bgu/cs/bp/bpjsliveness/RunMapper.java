@@ -33,7 +33,12 @@ public class RunMapper {
         final BProgram bprog = new ContextBProgram(name+".js");
         String content = new String(Files.readAllBytes(Paths.get("sokoban_maps", map_name)));
         bprog.putInGlobalScope("MAP", content);
+        long start = System.currentTimeMillis();
         MapperResult mapperResult = stateSpaceMapper.mapSpace(bprog);
+        long end = System.currentTimeMillis();
+        long elapsedTime = end - start;
+        System.out.println("elapsedTime:");
+        System.out.println(elapsedTime);
         System.out.println(mapperResult);
         System.out.println("// Export to GraphViz...");
         String path = Paths.get("output", name + "_" + args[0] + ".dot").toString();
