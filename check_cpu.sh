@@ -8,7 +8,7 @@
 #SBATCH --mail-type=BEGIN,END,FAIL ### conditions when to send the email. ALL,BEGIN,END,FAIL, REQUEU, NONE
 #SBATCH --mem=1G ### total amount of RAM // 500
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=32 ##. // max 128
+#SBATCH --cpus-per-task=1 ##. // max 128
 
 ### Start you code below ####
 cat /proc/cpuinfo
